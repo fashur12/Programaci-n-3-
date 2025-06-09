@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+    <header>
+        <div class="logo">+ consulta médica</div>
+    </header>
+         <h1>Bienvenido a tu consulta medica</h1>
+        <div class="login-container">
+            <h1>Login</h1>
+            <form action="/login" method="post">
+                <input type="text" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Clave" required>
+                <button type="submit">Ingresar</button>
+            </form>
+             <p>¿No tenés cuenta? <a href="/register">Registrate aquí</a></p>
+        </div>
+            <footer>
+        <p> 2025 cosulta medica, todos los derechos de reservar</p>
+        <p>Contacto:  contacto@consultamedica.com</p>
+    </footer>
+    <script>
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const email = document.querySelector('input[name="email"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+
+            fetch("/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
+            })
+            .then(res => res.json())
+            .then(data => {
+            if (data.token && data.id) {
+                localStorage.setItem("token", data.token);
+                localStorage.setItem("userId", data.id);
+                console.log("Token y ID guardados:", data.token, data.id);
+                window.location.href = "/turnos/vista";
+
+            } else {
+                alert("Login inválido");
+            }
+            });
+        });
+    </script>
+    </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gestión de Turnos</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+    <header>
+        <div class="logo">+ consulta médica</div>
+        <button onclick="logout()" class="login-button">Cerrar sesión</button>
+    </header>
+
+    <h1>Listado de Turnos</h1>
+
+    <div class="turnos-container">
+        <ul id="lista-turnos"></ul>
+
+        <h2>Agregar nuevo turno</h2>
+        <form id="form-turno">
+            <label for="fecha">Fecha:</label>
+            <input type="date" name="fecha" required>
+            <label for="hora">Hora:</label>
+            <input type="time" name="hora" required>
+            <button type="submit" class="reserve-button">Agregar Turno</button>
+        </form>
+    </div>
+
+    <script>
+        const token = localStorage.getItem("token");
+        const userId = localStorage.getItem("userId");
+
+        if (!token || !userId) {
+            alert("Debes iniciar sesión.");
+            window.location.href = "/login";
+        }
+
+        const lista = document.getElementById("lista-turnos");
+
+        // Cargar turnos
+        fetch(`/api/v1/turnos/${userId}`, {
+            headers: { Authorization: `Bearer ${token}` }
+        })
+        .then(res => res.json())
+        .then(turnos => {
+            turnos.forEach(t => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    Turno: ${t.fecha} - ${t.hora}
+                    <button onclick="eliminarTurno('${t.id}')">Eliminar</button>
+                `;
+                lista.appendChild(li);
+            });
+        });
+
+        // Crear turno
+        document.getElementById("form-turno").addEventListener("submit", e => {
+            e.preventDefault();
+            const fecha = e.target.fecha.value;
+            const hora = e.target.hora.value;
+
+            fetch("/api/v1/turnos", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify({ fecha, hora })
+            })
+            .then(res => res.json())
+            .then(() => location.reload());
+        });
+
+        // Eliminar turno
+        function eliminarTurno(id) {
+            fetch(`/api/v1/turnos/${id}`, {
+                method: "DELETE",
+                headers: { Authorization: `Bearer ${token}` }
+            })
+            .then(res => res.json())
+            .then(() => location.reload());
+        }
+
+        // Logout
+        function logout() {
+            localStorage.clear();
+            window.location.href = "/login";
+        }
+    </script>
+</body>
+</html>
