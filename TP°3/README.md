@@ -87,7 +87,7 @@ Probamos las rutas principales con Postman para validar que el backend funcione 
 1. Lo primero seria clonar el repo
 
 ```js
-git clone 
+git clone https://github.com/fashur12/Programaci-n-3-/tree/main/TP%C2%B03
 ```
 
 2.Instalar
