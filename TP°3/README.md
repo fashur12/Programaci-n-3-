@@ -46,6 +46,10 @@ Probamos las rutas principales con Postman para validar que el backend funcione 
 ![Imagen de WhatsApp 2025-06-08 a las 19 56 54_3422273b](https://github.com/user-attachments/assets/41e87e84-26e0-4e37-a5fc-d13c549135e4)
 ![Imagen de WhatsApp 2025-06-08 a las 19 57 03_790b3b66](https://github.com/user-attachments/assets/453259f3-c603-45c4-ad0e-a89a3de5d1c8)
 ![Imagen de WhatsApp 2025-06-08 a las 19 57 09_8fef34b1](https://github.com/user-attachments/assets/8cf5f4cc-e489-4347-9592-d233f26be266)
+![Imagen de WhatsApp 2025-07-01 a las 17 18 00_ee3b2b02](https://github.com/user-attachments/assets/33140e51-42e5-48c7-ac6b-15048962ddfd)
+![Imagen de WhatsApp 2025-07-01 a las 17 19 03_ed78c060](https://github.com/user-attachments/assets/61f1fbf6-ef22-4831-8c8e-7f699fc458cb)
+![Imagen de WhatsApp 2025-07-01 a las 17 21 14_fe2a2644](https://github.com/user-attachments/assets/38d5bf66-d568-41fc-9990-3cc703275cda)
+![Imagen de WhatsApp 2025-07-01 a las 17 21 29_043bcc46](https://github.com/user-attachments/assets/41d2f524-2fa0-4496-9ceb-9de29dd3d98e)
 
 ----------------------------------
 # ENDPOINTS :
