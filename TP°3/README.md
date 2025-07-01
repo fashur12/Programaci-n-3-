@@ -52,40 +52,74 @@ Probamos las rutas principales con Postman para validar que el backend funcione 
 ![Imagen de WhatsApp 2025-07-01 a las 17 21 29_043bcc46](https://github.com/user-attachments/assets/41d2f524-2fa0-4496-9ceb-9de29dd3d98e)
 
 ----------------------------------
-# ENDPOINTS :
+# ENDPOINTS
 
-## Endopint para **"Pacientes"**
+## Endpoint para **"Home"**
 
-`GET /api/v1/pacientes`
+`GET /`
+![HOME]
 
-![Imagen de WhatsApp 2025-06-08 a las 21 28 38_4bc36951](https://github.com/user-attachments/assets/1a6ff5d3-5ef2-4df9-9c6f-68d87ad3fb7c) 
+`GET /login`
+![LOGIN]
 
-`DELETE /api/v1/paceintes/:id`
+`GET /register`
+![REGISTER]
 
-![Imagen de WhatsApp 2025-06-08 a las 21 49 43_5d660eaf](https://github.com/user-attachments/assets/d475cfc1-ef20-4c4f-b08e-81682ab011bb) 
+`GET /listaPacientes`
+![LISTA PACIENTES]
 
-`PUT /api/v1/pacientes/:id`
+`GET /turnos/vista`
+![VISTA TURNOS]
 
-![Imagen de WhatsApp 2025-06-08 a las 21 47 50_37833192](https://github.com/user-attachments/assets/0af45376-e4ff-417a-9c75-84634162981b) 
+`POST /register`
+![REGISTRO PACIENTE (POST)]
 
-`POST /api/v1/pacientes`
+`POST /login`
+![LOGIN PACIENTE (POST)]
 
-![Imagen de WhatsApp 2025-06-08 a las 21 46 25_e83b86c8](https://github.com/user-attachments/assets/a19e058e-f271-4dd3-ac8c-3d6fea5bc59e) 
+---
 
+## Endpoint para **"Pacientes"**
+
+`GET /api/v1/pacientes`  
+*Requiere token*
+![GET pacientes]
+
+`GET /api/v1/pacientes/me`  
+*Requiere token*
+![GET perfil paciente]
+
+`POST /api/v1/pacientes/login`  
+*Valida con loginSchema*
+![POST login paciente]
+
+`POST /api/v1/pacientes`  
+*Valida con registroSchema*
+![POST crear paciente]
+
+`PUT /api/v1/pacientes/:id`  
+*Requiere token*
+![PUT actualizar paciente]
+
+`DELETE /api/v1/pacientes/:id`  
+*Requiere token*
+![DELETE paciente]
+
+---
 
 ## Endpoint para **"Turnos"**
 
-`GET /api/v1/turnos`
+`GET /api/v1/turnos/:idPaciente`  
+*Requiere token*
+![GET turnos por paciente]
 
-![Imagen de WhatsApp 2025-06-08 a las 21 30 45_2bf131c5](https://github.com/user-attachments/assets/0cb94dcd-006e-469e-9a27-85109260b518) 
+`POST /api/v1/turnos`  
+*Requiere token*
+![POST crear turno]
 
-`DELETE /api/v1/turnos/:id`
-
-![Imagen de WhatsApp 2025-06-08 a las 21 52 10_7e8569ad](https://github.com/user-attachments/assets/ec2d5ef2-0bc1-439c-9e7b-6be3ae07cc57) 
-
-`POST /api/v1/turnos`
-
-![Imagen de WhatsApp 2025-06-08 a las 21 51 16_b8976915](https://github.com/user-attachments/assets/29867349-4619-4761-8673-01eedbb14f7f) 
+`DELETE /api/v1/turnos/:idTurno`  
+*Requiere token*
+![DELETE cancelar turno]
 
 
 # INSTALACIÓN DEL PROYECTO
