@@ -12,6 +12,7 @@
 # Estructuras de las Carpetas
 
 ```ruby
+├───.vscode
 └───src
     ├───config
     ├───controllers
@@ -27,7 +28,8 @@
     ├───routes
     ├───schemas
     └───views
-        └───ejs
+        ├───ejs
+        └───pug
 ```
 
 # Pruebas en Postman
